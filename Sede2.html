@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V3</title>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+</head>
+
+<body>
+    <div class="carousel">
+        <div class="carousel-container"><img src="https://www.uv.mx/uvi/files/2024/03/Sede-Xalapapng_1.png" alt="Imagen 1" /><img src="https://www.uv.mx/uvi/files/2024/03/Sede-Xalapapng_2.png" alt="Imagen 2" /><img src="https://www.uv.mx/uvi/files/2024/03/Sede-Xalapapng_3.png" alt="Imagen 3" /></div>
+        </div>
+        <div class="menu_pagina_sede"><button>¿Quiénes Somos?</button>
+        <button>Oferta Educativa</button>
+        <button>Alcance y Vinculación</button>
+        <button>Directorio</button>
+        <button>Contacto</button></div>
+            <div id="acerca_de">
+
+            </div>
+        
+        <script>
+        window.onload = function () {
+                    var carouselContainer = document.querySelector('.carousel-container');
+                    var images = carouselContainer.children;
+                    var index = 0;
+                    setInterval(function () {
+                        index++;
+                        if (index === images.length) {
+                            index = 0;
+                        }
+                        carouselContainer.style.transform = 'translateX(-' + (index * 100) + '%)';
+                    }, 3000);
+                };
+                document.addEventListener('DOMContentLoaded', function () {
+                    var images = document.querySelectorAll('.carousel img');
+                    images.forEach(function (image) {
+                        image.addEventListener('click', function () {
+                            toggleFullScreen(this);
+                        });
+                    });
+                });
+                function toggleFullScreen(element) {
+                    if (!document.fullscreenElement) {
+                        element.requestFullscreen().catch(function (err) {
+                            alert("Error al intentar entrar en modo de pantalla completa: " + err.message);
+                        });
+                    } else {
+                        document.exitFullscreen();
+                    }
+                }
+        </script>
+</body>
+
+</html>
